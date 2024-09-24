@@ -1,6 +1,261 @@
 {% block content %}
   {% include 'header.html' %}
   {% load static %}
+  <style>
+    /* Estilo para o layout do main */
+.container {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "aside main";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 275px 1fr;
+  height: 100vh;
+}
+
+/* Flexbox para organizar a linha dos filtros */
+.form-row {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente as labels */
+  gap: 1rem; /* Espaço entre os itens */
+  margin-bottom: 2rem; /* Espaço entre as linhas */
+}
+
+/* Ajuste das labels */
+.filter label {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem; /* Espaço entre a label e o campo */
+  min-width: 120px; /* Largura mínima para alinhamento das labels */
+  text-align: right; /* Alinha o texto da label à direita */
+}
+
+/* Campos de filtro */
+.filter input, 
+.filter select {
+  border-radius: 5px;
+  padding: 0.75rem; /* Aumenta o padding interno */
+  box-sizing: border-box;
+}
+
+/* Campo "Ano" menor */
+.filter#ano input {
+  width: 100px; /* Define o tamanho maior para o campo Ano */
+}
+
+/* Campo "Semestre" maior, permitindo texto como "Primeiro", "Segundo" */
+.filter#semestre input {
+  width: 200px; /* Tamanho maior para o campo Semestre */
+}
+
+/* Campo "Curso" maior */
+.filter#curso select {
+  width: 300px; /* Aumenta o tamanho do campo de Curso */
+}
+
+/* Campos de tamanho pequeno (para customização futura) */
+.filter-small {
+  min-width: 100px;
+  max-width: 120px;
+}
+
+/* Campos de tamanho grande (para customização futura) */
+.filter-large {
+  min-width: 250px;
+  max-width: 350px;
+}
+
+/* Centralização vertical para radio buttons */
+.filter-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Configuração geral das labels */
+label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+/* Botão de submit */
+.submit-button {
+  margin-top: 20px;
+}
+
+/* Estilos para o main */
+main {
+  grid-area: main;
+  background-color: #fff;
+  padding: 4rem 4rem 10rem 5rem;
+  box-sizing: border-box;
+}
+
+li{
+  list-style: none;
+}
+
+#breadcrumbs {
+  color: #999;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.title-container {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.title-container > h2 {
+  color: #292929;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0; /* Remove a margem padrão */
+  padding-bottom: 0.5rem;
+}
+
+/* Barra de ação */
+.action-bar-container {
+  display: flex; /* Mantém a lista horizontal */
+  justify-content: flex-end; /* Alinha a ação à direita */
+}
+
+.action-bar {
+  list-style: none;
+  display: flex; /* Coloca a lista horizontal */
+  margin: 0;
+  padding: 0;
+}
+
+.action-bar li {
+  margin-left: 1rem; /* Espaço entre os botões */
+}
+
+.search-and-filters {
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 4px 0 1rem;
+  padding: 2rem;
+  width: 95%;
+}
+
+/* Estilo para remover os pontinhos e personalizar o radio button */
+input[type="radio"] {
+  -webkit-appearance: none; /* Remove o estilo padrão no Chrome/Safari */
+  -moz-appearance: none;    /* Remove o estilo padrão no Firefox */
+  appearance: none;         /* Remove o estilo padrão nos browsers compatíveis */
+  width: 15px;
+  height: 15px;
+  border: 2px solid #007bff;
+  border-radius: 10px; /* Define as bordas arredondadas */
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  list-style: none;
+}
+
+/* Estilo para o "check" do radio button */
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #007bff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilo para os labels ao lado dos radio buttons */
+.form-options label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Estilo para o campo ao redor dos radio buttons */
+.form-options {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Adiciona espaçamento e formatação */
+.form-options li {
+  list-style: none; /* Remove os pontinhos das listas */
+}
+
+/* Border-radius para os inputs e selects gerais */
+.filter input, 
+.filter select {
+  padding: 0.75rem; /* Aumenta o padding interno */
+  box-sizing: border-box;
+  border-radius: 5px; /* Ajusta o border-radius */
+}
+
+.field-container {
+  display: flex;
+  align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+.field-box {
+  display: flex;
+  flex-direction: column; /* Botões de rádio em coluna */
+  padding-right: 10px;
+}
+
+.field-box label {
+  margin-bottom: 8px; /* Espaçamento entre opções de rádio */
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter input[type="text"] {
+  width: 200px; /* Largura do campo de texto "Participantes" */
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+/* Botão de enviar */
+.submit-button {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 90px;
+}
+
+.btn {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #444;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.25rem;
+  min-height: 30px;
+}
+
+.btn.success {
+  background-color: #198754;
+}
+
+.btn.default {
+  background-color: #ddd;
+}
+  </style>
   <link rel="stylesheet" href="{% static 'add_conselho_declasse.css' %}">
 
   <head>
