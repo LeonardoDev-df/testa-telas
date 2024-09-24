@@ -1,0 +1,144 @@
+{% block content %}
+  {% include 'header.html' %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'add_conselho_declasse.css' %}">
+
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <div class="container">
+    <main id="content">
+
+      <div id="breadcrumbs">
+        <a href="">Início</a>
+        <a href="">/Conselho de Classe</a>
+      </div>
+
+      <div class="title-container">
+        <h2>Adicionar Conselho de Classe</h2>
+        <div class="object-status"></div>
+        <div class="action-bar-container">
+          <ul class="action-bar">
+            <li>
+              <a href="" class="btn default popup" data-reload-on-close="false">
+                <span  class="fas fa-question-circle" aria-hidden="true"></span> Ajuda
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="content-main">
+        <div class="search-and-filters">
+          <form action="" id="search-and-filters-form">
+
+            <!-- Linha 1: Ano, Semestre, Curso -->
+            <div class="form-row">
+              <label for="ano">Ano:</label>
+              <div class="filter" id="ano">
+                <input type="text" id="ano" name="ano" placeholder="2024">
+              </div>
+              <label for="semestre">Semestre:</label>
+              <div class="filter" id="semestre">
+                <input type="text" id="semestre" name="semestre" placeholder="Primeiro">
+              </div>
+              <label for="curso">Curso:</label>
+              <div class="filter" id="curso">
+                <select id="curso" name="curso">
+                  <option value="1">Todas</option>
+                  <option value="2">Curso 2</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Linha 2: Turma -->
+            <div class="form-row">
+              <label for="turma">Turma:</label>
+              <div class="filter" id="turma">
+                <input type="text" name="turma" id="add-turma" style="width: 180%;" required>
+              </div>
+            </div>
+
+            <!-- Linha 3: Data da Realização, Horário -->
+            <div class="form-row">
+              <label for="data_da_realizacao">Data da Realização:</label>
+              <div class="filter" id="data_da_realizacao">
+                <input type="date" name="data_da_realizacao" id="add-data-da-realizacao" required>
+              </div>
+              <label for="horario">Horário:</label>
+              <div class="filter" id="horario">
+                <input type="time" name="horario" id="add-horario" required>
+              </div>
+            </div>
+
+  
+          <!-- Linha 4: Período com opções de seleção e Participantes -->
+        <div class="form-row field-container">
+          
+          <!-- Campo Período com opções de seleção -->
+          <label for="periodo">Período:</label>
+          <div>
+            
+            <div class="field-box">
+              <label>
+                <input type="radio" name="optionsRadios" value="option1" />
+                <span>1 Bimestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option2" />
+                <span>2 Bimestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option3" />
+                <span>3 Bimestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option4" />
+                <span>4 Bimestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option1" />
+                <span>1 Trimestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option2" />
+                <span>2 Trimestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option3" />
+                <span>3 Trimestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option4" />
+                <span>1 Semestre</span>
+              </label>
+              <label>
+                <input type="radio" name="optionsRadios" value="option4" />
+                <span>2 Semestre</span>
+              </label>
+              <!-- Mais opções de seleção -->
+            </div>
+          </div>
+
+            <!-- Campo Participantes ao lado do campo Período -->
+            <div class="form-row">
+              <label for="participantes">Participantes:</label>
+              <div class="filter" id="participantes" style="">
+               
+                <input type="text" name="participantes" id="add-participantes" style="width: 180%;" required>
+              </div>
+            </div>
+           
+          </div>
+
+
+            <!-- Botão de enviar -->
+            <div class="submit-button">
+              <button id="button_filter" class="btn default" type="submit">Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  {% endblock %}

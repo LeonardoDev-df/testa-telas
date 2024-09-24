@@ -1,0 +1,185 @@
+/* Estilos para o layout principal */
+.container {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "aside main";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 275px 1fr; /* Ajuste conforme o tamanho do aside */
+    height: 100vh;
+  }
+  
+  /* Estilos para o main */
+  main {
+    grid-area: main;
+    background-color: #fff;
+    padding: 4rem 4rem 10rem 5rem;
+    box-sizing: border-box;
+  }
+  
+  /* Breadcrumbs */
+  #breadcrumbs {
+    color: #999;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding-bottom: .5rem;
+    width: 100%;
+  }
+  
+
+ 
+  
+  /* Estilos para a área de pesquisa e filtros */
+  .search-and-filters {
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    clear: both;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 4px 0 1rem;
+    padding: 2rem;
+    border-color: #ddd;
+  }
+  
+  #searchbar-text{
+    width: 65%;
+    border-color: #ddd;
+    border-radius: 5px;
+  }
+  
+
+  .search-and-filters form, .search-and-filters #search-and-filters-form {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  /* Alinhamento dos filtros em duas seções */
+  .search-and-filters .form-row {
+    display: flex;
+    width: 55%;
+    justify-content: space-between;
+  }
+  
+  .form-row .filter {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .form-row .filter:last-child {
+    margin-right: 0;
+  }
+  
+  /* Botão de enviar */
+  .submit-button {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+  
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #198754;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.25rem;
+    min-height: 30px;
+  }
+
+  .text-centert {
+    font-size: 20px;
+  
+  }
+  
+  
+
+/* Estilos para a tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+/* Estilos para o cabeçalho da tabela */
+table thead th {
+  background-color: #c8c6c6;
+  border: 1px solid #ddd;
+  color: #333; /* Alterado para a cor fornecida */
+  font-weight: 600; /* Novo peso da fonte */
+  letter-spacing: 0.05em; /* Espaçamento entre letras */
+  border-bottom: 2px solid #ddd; /* Nova borda inferior */
+  padding: 10px 8px; /* Mesma configuração de padding para consistência */
+  text-align: left;
+  font-size: 13px;
+}
+
+/* Estilos para as células da tabela */
+table td{
+  border: 1px solid #ddd;
+  padding: 12px 15px; /* Mesmo padding para td e th */
+  text-align: left;
+  font-size: 13px;
+}
+
+/* Estilos para linhas pares */
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Estilos para hover */
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos personalizados para diferentes estados das linhas */
+table tbody tr.highlight {
+  background-color: #fffae6;
+}
+
+table tbody tr.error {
+  background-color: #fdd;
+}
+
+table tbody tr.extra {
+  background-color: #eef;
+}
+
+table tbody tr.disabled {
+  background-color: #ddd;
+}
+
+  
+  
+  /* Estilos adicionais para responsividade */
+  @media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main";
+    }
+  
+    .search-and-filters {
+        flex-direction: column;
+        gap: 1rem;
+    }
+  
+    .form-row {
+        flex-direction: column;
+    }
+  }
+  

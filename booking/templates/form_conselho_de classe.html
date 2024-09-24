@@ -1,0 +1,105 @@
+<!-- Adicione o link do Font Awesome no <head> do seu HTML -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <span>FILTROS:</span>
+<form action="" id="search-and-filters-form">
+    <div class="form-row">
+      <div class="filter">
+        <label>Texto:</label>
+        <input type="text" pattern=".{3,}" name="q" value="{{ request.GET.q }}" id="searchbar-text" title="3 ou mais caracteres">
+      </div>
+  
+      <div class="filter">
+        <label for="data_da_realizacao">Data da Realização:</label>
+        <input type="text" pattern=".{3,}" name="q" value="{{ request.GET.q }}" id="searchbar-date" title="3 ou mais caracteres">
+      </div>
+  
+      <div class="filter" >
+        <label for="ano">Ano:</label>
+        <div class="input-icon" style="border-radius: 7px">
+          <i class="fas fa-search"></i>
+          <input type="text" name="ano" id="searchbar-ano" placeholder="Todos">
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-row">
+      <div class="filter">
+        <label for="turma">Turma:</label>
+        <div class="input-icon">
+          <i class="fas fa-search"></i>
+          <input type="text" pattern=".{3,}" name="q" value="{{ request.GET.q }}" id="searchbar-turma" title="3 ou mais caracteres" placeholder="Todas">
+        </div>
+      </div>
+  
+  
+      <div class="filter" style="border-radius: 7px">
+        <label for="periodo_letivo">Período:</label>
+        <select id="periodo_letivo" name="periodo_letivo">
+          <option value="">Todos</option>
+          <!-- Lista de opções aqui -->
+        </select>
+      </div>
+  
+      <div class="filter" style="border-radius: 7px">
+        <label for="curso">Curso:</label>
+        <select id="curso" name="curso">
+          <option value="">Todos</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="filtrar">
+      <button id="filtrando" class="filtrando" type="submit">Filtrar</button>
+    </div>
+  </form>
+  
+  <style>
+    .input-icon {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .input-icon input {
+    width: 100%;
+    padding-left: 30px; /* Espaço para o ícone */
+    border-radius: 6px;
+  }
+
+  .input-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+  }
+
+  /* Botão de enviar */
+.filtrar {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 90px;
+}
+
+.filtrando {
+  padding: 8px 25px;
+  text-decoration: none;
+  color: #ddd;
+  background-color: #0000ff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.25rem;
+  min-height: 30px;
+  cursor: pointer;
+}
+
+
+  .filtrando:hover {
+    background-color: #0056b3;
+  }
+
+  </style>

@@ -1,0 +1,68 @@
+{% block content %}
+  {% include 'header.html' %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'criar_ata_conselho.css' %}">
+
+  <div class="container">
+    <main>
+      <div id="breadcrumbs">
+        <a href="#">Início</a> &gt; <span>Ata de Conselho</span>
+      </div>
+  
+      <div class="title-container">
+        <h3>Criar Ata de Conselho de Classe</h3>
+        <span class="turma-info">Turma: 20241.1.EBI.13</span>
+      </div>
+  
+      <form method="POST" >
+        {% csrf_token %}
+  
+       
+         <div style="display: flex; justify-content: space-between;">
+          <!-- Campos Data e Hora lado a lado -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="data">Data:</label>
+              <input type="date" id="data" name="data" required>
+            </div>
+
+            <div class="form-group">
+              <label for="hora">Hora:</label>
+              <input type="time" id="hora" name="hora" required>
+            </div>
+          </div>
+          <label for="participantes" style="padding-left: 160px;">Participantes:</label>
+          <!-- Campo Participantes -->
+          <div class="form-group participantes-group" style="padding-left: 10px;">
+           
+            <ul class="participantes-list" style="display: flex; flex-direction: column; ">
+              <li><a href="#">Aline Dantas</a></li>
+              <li><a href="#">Denis Santos</a></li>
+              <li><a href="#">Erlan Tostes</a></li>
+            </ul>
+          </div>
+         </div>
+         
+  
+        <!-- Campo Deliberações -->
+        <div class="form-group deliberacoes-group">
+          <label for="deliberacoes">Deliberações:</label>
+          <textarea id="deliberacoes" name="deliberacoes" rows="5"></textarea>
+        </div>
+  
+        <!-- Termo de ciência -->
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="confirmacao" name="confirmacao" style="transform: scale(1.5); cursor: pointer;" required>
+          <label for="confirmacao">Tenho ciência de que a ATA deverá ser criada no mesmo dia da realização do Conselho de Classe.</label>
+        </div>
+  
+        <!-- Botão Salvar -->
+        <div class="action-bar-container">
+          <button type="submit" class="btn-salvar">Salvar</button>
+        </div>
+      </form>
+    </main>
+  </div>
+  
+  
+  {% endblock %}

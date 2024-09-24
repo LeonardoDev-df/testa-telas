@@ -1,0 +1,50 @@
+{% block content %}
+  {% include 'header.html' %}
+  {% load static %}
+  <!-- Carregar arquivo CSS externo -->
+  <link rel="stylesheet" href="{% static 'listar_conselho_declasse.css' %}">
+  <link rel="stylesheet" href="{% static 'table.css' %}">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  
+  <div class="container">
+    <main id="content">
+
+      <!-- Breadcrumbs -->
+      {% include 'breadcrumbs_coselho_de_classe.html' %}
+
+      <div class="title-container">
+        <h2>Conselho de Classe</h2>
+        <div class="object-status"></div>
+        <div class="action-bar-container">
+          <ul class="action-bar">
+            <li>
+              <a href="{% url 'add_conselho_de_classe' %}" class="btn success">Adicionar Conselho de Classe</a>
+            </li>
+            <li>
+              <a href="" class="btn">Exportar para XLS</a>
+            </li>
+            <li>
+              <a href="" class="btn default popup" data-reload-on-close="false">
+                <span class="fas fa-question-circle" aria-hidden="true"></span> Ajuda
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="content-main">
+
+        <!-- Formulário de Filtros -->
+        <div class="search-and-filters">
+          {% include 'form_conselho_de classe.html' %}
+        </div>
+
+        <!-- Tabela de Dados -->
+        {% include 'table_coselho_de_classe.html' %}
+        
+      </div>
+    </main>
+  </div>
+{% endblock %}

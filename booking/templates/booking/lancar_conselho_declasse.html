@@ -1,0 +1,85 @@
+{% block content %}
+  {% include 'header.html' %}
+  {% load static %}
+
+  <!-- Carregar arquivo CSS externo -->
+  <link rel="stylesheet" href="{% static 'lancar_conselho_declasse.css' %}">
+  
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  
+  <div class="container">
+    <main id="content">
+
+      <!-- Breadcrumbs -->
+      {% include 'breadcrumbs_coselho_de_classe.html' %}
+      <div>
+        <h3>Aluno: Daniel Silva - Matrícula: 20241TSPAV0001</h3>
+      </div>
+     
+      <div>
+        <h2>Lançar situações em disciplinas - coselho de classe final</h2>
+      </div>
+     
+
+    
+      
+      <div id="content-main">
+
+        <!-- Formulário de Filtros -->
+        <div class="search-and-filters">
+          <div style="padding-top: -10px;">
+            <div style="padding-bottom: 10px;">
+              <span style="padding-left: 100px; ">Diários:</span>
+            </div>
+          
+      
+            
+            <div>
+              <span>Marque os diários em que deseja lançar aprovação ou desmarque os que deseja manter a reprovação do(a) aluno(a).</span>
+            </div>
+          </div>
+         
+
+         <table>
+            <thead id="">
+              <tr>
+                <th>#</th>
+                <th class="text-center">Sigla</th>
+                <th class="text-start">Descrição</th>
+               
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>
+                  <input type="checkbox" checked style="transform: scale(1.5);">
+                </td>
+                <td class="">TIN.0014</td>
+                <td>Matemática 1</td>
+              
+               
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" checked style="transform: scale(1.5);">
+                </td>
+                <td class="">TIN.0012</td>
+                <td>Química 1</td>
+              
+               
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        <div class="submit-button">
+          <button  class="btn" type="submit">Salvar</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+{% endblock %}

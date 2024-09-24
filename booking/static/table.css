@@ -1,0 +1,72 @@
+/* Estilos gerais */
+* {
+  margin: 0;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text-centert {
+  font-size: 20px;
+
+}
+
+/* Estilos para a tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+/* Estilos para o cabeçalho da tabela */
+table thead th {
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+  color: #333; /* Alterado para a cor fornecida */
+  font-weight: 600; /* Novo peso da fonte */
+  letter-spacing: 0.05em; /* Espaçamento entre letras */
+  border-bottom: 2px solid #ddd; /* Nova borda inferior */
+  padding: 10px 8px; /* Mesma configuração de padding para consistência */
+  text-align: left;
+  font-size: 13px;
+}
+
+/* Estilos para as células da tabela */
+table td{
+  border: 1px solid #ddd;
+  padding: 12px 15px; /* Mesmo padding para td e th */
+  text-align: left;
+  font-size: 13px;
+}
+
+/* Estilos para linhas pares */
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Estilos para hover */
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos personalizados para diferentes estados das linhas */
+table tbody tr.highlight {
+  background-color: #fffae6;
+}
+
+table tbody tr.error {
+  background-color: #fdd;
+}
+
+table tbody tr.extra {
+  background-color: #eef;
+}
+
+table tbody tr.disabled {
+  background-color: #ddd;
+}

@@ -1,0 +1,360 @@
+/* Estilos para o layout principal */
+.container {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "aside main";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 275px 1fr; /* Ajuste conforme o tamanho do aside */
+    height: 100vh;
+  }
+  
+  /* Estilos para o main */
+  main {
+    grid-area: main;
+    background-color: #fff;
+    padding: 4rem 4rem 10rem 5rem;
+    box-sizing: border-box;
+  }
+  
+  /* Breadcrumbs */
+  #breadcrumbs {
+    color: #999;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding-bottom: .5rem;
+    width: 100%;
+  }
+  
+    /* Container do título e barra de ação */
+    .title-container {
+        display: grid;
+        grid-template-columns: 50% 15% 15%; /* Dados do conselho ocupando 70%, botões dividindo 30% */
+        gap: 1rem; /* Espaço entre os itens */
+        align-items: center; /* Alinha verticalmente os itens */
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+  
+  .title-container > h2 {
+    color: #292929;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0; /* Remove a margem padrão */
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Barra de ação */
+  .action-bar-container {
+    display: flex; /* Mantém a lista horizontal */
+    justify-content: flex-end; /* Alinha a ação à direita */
+  }
+  
+  .action-bar {
+    list-style: none;
+    display: flex; /* Coloca a lista horizontal */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .action-bar li {
+    margin-left: 1rem; /* Espaço entre os botões */
+  }
+
+  /* Estilos da barra de ação para dispor os botões em coluna */
+.action-bars {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Exibe os itens da lista em coluna */
+    gap: 1rem; /* Espaço entre os botões */
+    margin: 0;
+    padding: 0;
+}
+
+.action-bars li {
+    margin: 0;
+    text-align: center; /* Centraliza o texto nos botões */
+}
+
+  
+  /* Estilos para a área de pesquisa e filtros */
+  .search-and-filters {
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    clear: both;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 4px 0 1rem;
+    padding: 2rem;
+    border-color: #ddd;
+  }
+  
+  #searchbar-text{
+    width: 65%;
+    border-color: #ddd;
+    border-radius: 5px;
+  }
+  
+  #searchbar-date{
+    width: 110%;
+    border-color: #ddd;
+    border-radius: 5px;
+  }
+  
+  #searchbar-turma{
+    width: 150%;
+    border-color: #ddd;
+    border-radius: 5px;
+  }
+  
+  #periodo_letivo{
+    width: 140%;
+    border-color: #ddd;
+    border-radius: 5px;
+  }
+  
+  #curso{
+    width: 150%;
+    border-color: #ddd;
+    border-radius: 5px;
+  }
+
+  .search-and-filters form, .search-and-filters #search-and-filters-form {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  /* Estilos dos filtros */
+  .filter {
+    flex: 1; /* Ocupa o máximo de espaço disponível */
+    min-width: 100px; /* Define uma largura mínima menor */
+    max-width: 150px; /* Define uma largura máxima para diminuir o tamanho dos campos */
+  }
+  
+  .filter label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .filter input,
+  .filter select {
+    width: 100%; /* Mantém o preenchimento total dentro do filtro */
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 0.9rem; /* Diminui ligeiramente o tamanho do texto para ajustar à largura */
+  }
+  
+  /* Alinhamento dos filtros em duas seções */
+  .search-and-filters .form-row {
+    display: flex;
+    width: 55%;
+    justify-content: space-between;
+  }
+  
+  .form-row .filter {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .form-row .filter:last-child {
+    margin-right: 0;
+  }
+
+  .field-container {
+    display: flex;
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+  }
+  
+  
+  /* Botão de enviar */
+  .submit-button {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 90px;
+  }
+  
+  .btn {
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    min-height: 20px;
+  }
+  
+  .btn.success {
+    background-color: #198754;
+  }
+  
+  .btn.default {
+    background-color: #ddd;
+  }
+  .field-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  /* Estilos adicionais para responsividade */
+  @media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main";
+    }
+  
+    .search-and-filters {
+        flex-direction: column;
+        gap: 1rem;
+    }
+  
+    .form-row {
+        flex-direction: column;
+    }
+  }
+
+  /* Estilos adicionais para a página do conselho de classe */
+
+  .dados-conselho {
+    max-width: 600px;
+  }
+
+  .dados-basicos {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .observacoes {
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .field-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .botoes-conselho {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .finalizar-btn {
+    margin-top: 10px;
+  }
+
+  .action-bar {
+    display: flex;
+    gap: 10px;
+  }
+
+  .action-bar-container .btn.success {
+    background-color: #28a745;
+  }
+
+  .finalizar-btn {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .btn:hover {
+    background-color: #464444;
+  }
+
+  .btn.success:hover {
+    background-color: #218838;
+  }
+
+/* Estilos adicionais para a tabela em forma de abas */
+/* Estilo básico para as abas */
+.tabs {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.tabs li {
+  margin-right: 10px;
+}
+
+.tabs li a {
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.tabs li a:hover {
+  background-color: #ddd;
+}
+
+.tabs li a.active {
+  background-color: white;
+  color: #333;
+  border-bottom: none;
+  position: relative;
+  top: 2px;
+  font-weight: bold;
+  /* Adiciona sombra para efeito de profundidade */
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo das áreas de conteúdo */
+.tab-content {
+  display: none;
+  border: 1px solid #ddd;
+  padding: 0px;
+  margin-top: -18px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #b8acac;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

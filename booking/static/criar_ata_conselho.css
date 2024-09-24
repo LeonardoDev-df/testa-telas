@@ -1,0 +1,156 @@
+/* Estilos para o layout principal */
+.container {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "aside main";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 275px 1fr;
+    height: 100vh;
+  }
+  
+  main {
+    grid-area: main;
+    background-color: #fff;
+    padding: 4rem 4rem 10rem 5rem;
+    box-sizing: border-box;
+  }
+  
+  /* Breadcrumbs */
+  #breadcrumbs {
+    color: #999;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding-bottom: .5rem;
+    width: 100%;
+  }
+  
+  #breadcrumbs a {
+    text-decoration: none;
+    color: #555;
+  }
+  
+  #breadcrumbs span {
+    color: #999;
+  }
+  
+  /* Container do título */
+  .title-container {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .title-container > h2 {
+    color: #292929;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+  
+  .turma-info {
+    font-size: 1.2rem;
+    color: #555;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  
+  /* Campos de Data e Hora lado a lado */
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem; /* Espaço entre os campos */
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    flex: 1;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="date"],
+  input[type="time"],
+  textarea {
+    width: 75%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  /* Lista de Participantes em coluna */
+  .participantes-group {
+    margin-bottom: 1.5rem;
+    padding-left: 110px;
+  }
+  
+  .participantes-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .participantes-list li {
+    margin-bottom: 5px;
+  }
+  
+  .participantes-list a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .participantes-list a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Deliberações */
+  .deliberacoes-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  /* Termo de ciência */
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .checkbox-group input {
+    margin-right: 10px;
+  }
+  
+  /* Botão Salvar */
+  .action-bar-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .btn-salvar {
+    background-color: #2b803f;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-salvar:hover {
+    background-color: #218838;
+  }
+  

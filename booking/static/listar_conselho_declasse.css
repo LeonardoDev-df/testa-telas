@@ -1,0 +1,199 @@
+/* Estilos para o layout principal */
+.container {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "aside main";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 275px 1fr; /* Ajuste conforme o tamanho do aside */
+  height: 100vh;
+}
+
+/* Estilos para o main */
+main {
+  grid-area: main;
+  background-color: #fff;
+  padding: 4rem 4rem 10rem 5rem;
+  box-sizing: border-box;
+}
+
+/* Breadcrumbs */
+#breadcrumbs {
+  color: #999;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding-bottom: .5rem;
+  width: 100%;
+}
+
+/* Container do título e barra de ação */
+.title-container {
+  display: grid;
+  grid-template-columns: 1fr auto auto; /* Ajuste conforme o espaço necessário */
+  gap: 1rem; /* Espaço entre os itens */
+  align-items: center; /* Alinha verticalmente os itens */
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.title-container > h2 {
+  color: #292929;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0; /* Remove a margem padrão */
+  padding-bottom: 0.5rem;
+}
+
+/* Barra de ação */
+.action-bar-container {
+  display: flex; /* Mantém a lista horizontal */
+  justify-content: flex-end; /* Alinha a ação à direita */
+}
+
+.action-bar {
+  list-style: none;
+  display: flex; /* Coloca a lista horizontal */
+  margin: 0;
+  padding: 0;
+}
+
+.action-bar li {
+  margin-left: 1rem; /* Espaço entre os botões */
+}
+
+/* Estilos para a área de pesquisa e filtros */
+.search-and-filters {
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  clear: both;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 4px 0 1rem;
+  padding: 2rem;
+  border-color: #ddd;
+}
+
+#searchbar-text{
+  width: 65%;
+  border-color: #ddd;
+  border-radius: 5px;
+}
+
+#searchbar-date{
+  width: 110%;
+  border-color: #ddd;
+  border-radius: 5px;
+}
+
+#searchbar-turma{
+  width: 150%;
+  border-color: #ddd;
+  border-radius: 5px;
+}
+
+#periodo_letivo{
+  width: 140%;
+  border-color: #ddd;
+  border-radius: 5px;
+}
+
+#curso{
+  width: 150%;
+  border-color: #ddd;
+  border-radius: 5px;
+}
+.search-and-filters form, .search-and-filters #search-and-filters-form {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Estilos dos filtros */
+.filter {
+  flex: 1; /* Ocupa o máximo de espaço disponível */
+  min-width: 100px; /* Define uma largura mínima menor */
+  max-width: 150px; /* Define uma largura máxima para diminuir o tamanho dos campos */
+}
+
+.filter label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filter input,
+.filter select {
+  width: 100%; /* Mantém o preenchimento total dentro do filtro */
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 0.9rem; /* Diminui ligeiramente o tamanho do texto para ajustar à largura */
+}
+
+/* Alinhamento dos filtros em duas seções */
+.search-and-filters .form-row {
+  display: flex;
+  width: 55%;
+  justify-content: space-between;
+}
+
+.form-row .filter {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.form-row .filter:last-child {
+  margin-right: 0;
+}
+
+/* Botão de enviar */
+.submit-button {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 90px;
+}
+
+.btn {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #ddd;
+  background-color: #444;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.25rem;
+  min-height: 30px;
+}
+
+.btn.success {
+  background-color: #198754;
+  color: #fff;
+}
+
+.btn.default {
+  color: #444;
+}
+
+/* Estilos adicionais para responsividade */
+@media (max-width: 768px) {
+  .container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+          "header"
+          "main";
+  }
+
+  .search-and-filters {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .form-row {
+      flex-direction: column;
+  }
+}

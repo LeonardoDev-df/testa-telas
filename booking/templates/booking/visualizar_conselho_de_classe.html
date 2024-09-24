@@ -1,0 +1,267 @@
+{% block content %}
+  {% include 'header.html' %}
+  {% load static %}
+  <!-- Carregar arquivo CSS externo -->
+  <link rel="stylesheet" href="{% static 'visualizar_conselho.css' %}">
+
+  <div class="container">
+    <main id="content">
+
+      <!-- Breadcrumbs -->
+      {% include 'breadcrumbs_coselho_de_classe.html' %}
+      <h2>Conselho de Classe da Turma 20241.1.EBI.13</h2>
+
+      <div class="title-container">
+        <div class="dados-conselho">
+          <h3><strong>Dados do Conselho de Classe</strong></h3>
+          <br>
+          <div class="dados-basicos">
+            <span><strong>Turma:</strong> 20241.1.EBI.13</span>
+          
+            <span><strong>Data de Realização:</strong> 30/07/2024</span>
+          </div>
+        </br>
+          <div class="observacoes">
+            <span><strong>Observações:</strong> Conselho realizado em conformidade com as resoluções vigentes.</span>
+            <span class="spacer"></span>
+          </div>
+          
+        </br>
+          <div class="field-container" style="display: flex; align-items: flex-start;">
+            <label ><strong>Participantes:</strong></label>
+
+            <div>   
+              <div class="field-box"  style="display: flex; flex-direction: column; ">
+                <span style="display: flex; align-items: flex-start; padding-left: 10px;">Aline Dantas</span>
+              </br>
+                <label style="display: flex; align-items: flex-start; padding-left: 10px;"><span>Denis Santos</span></label>
+              </br>
+                <label style="display: flex; align-items: flex-start; padding-left: 10px;"><span>Erlan Torres</span></label>
+              </div>
+            </div>
+          </div>
+            
+        </div>
+
+      
+
+        <div class="action-bar-container">
+          <ul class="action-bar">
+            <li><a href="{% url 'criar_ata_conselho' %}"class="btn">Criar ATA</a></li>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="action-bar-container">
+          <ul class="action-bars">
+            <li style=" list-style: none;"><a href="" class="btn success" >Abrir Conselho</a></li>
+            <br>
+            <li style=" list-style: none;"><a href="" class="btn">Finalizar Conselho</a></li>
+          
+        </div>
+
+      </div>
+
+      <div id="content-main">
+          <!-- Tabela de Dados -->
+          <div class="tab-container" data-titled-tab="true">
+            <ul class="tabs with-content">
+              <li><a href="#" class="tab-link" data-tab="janeiro">Alunos aptos para o conselho 2</a></li>
+              <li><a href="#" class="tab-link" data-tab="fevereiro">Todos os alunos</a></li>
+              <li><a href="#" class="tab-link" data-tab="marco">Documentos do conselho</a></li>
+            </ul>
+        
+            <!-- Conteúdo de Janeiro -->
+            <div id="janeiro" class="tab-content">
+              <table border="1" cellpadding="10">
+                <thead>
+                  <tr>
+                    <th>Aluno</th>
+                    <th colspan="3"><span style="display: flex; text-align: center; justify-content: center;">Diários </span></th>
+                    <th>Avaliado</th>
+                    <th><span style="display: flex; text-align: center; justify-content: center;">Ações</span></th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th>Diário</th>
+                    <th>Média Final</th>
+                    <th>Situação no Diário</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody style="background-color: rgb(229, 231, 231);">
+                  <tr>
+                    <td>
+                      <div style="display: flex; flex-direction: column;">
+                        <span>Daniel Silva</span>
+                        <span>Matrícula 20241TSPAV001</span>
+                      </div>               
+                    </td>
+                    <td>
+                      <div style="display: flex; flex-direction: column;">
+                        <span>TIN.0014-Matemática</span>
+                        <span>TIN.0015-Sistemas para Internet</span>
+                      </div>
+                     
+                    </td>
+                    <td>
+                      <div style="display: flex; flex-direction: column; ">
+                          <div>
+                            <span>32</span>
+                          </div>
+                          
+                          <div style="width: 110%; border-bottom: 1px solid #000; margin: 5px 0;"></div> <!-- Linha separadora -->
+                          
+                          <div>
+                            <span>33</span>
+                          </div>
+                      </div>
+                      
+                    </td>
+                    <td> 
+                      <div style="background-color: rgb(233 206 206);
+                      height: 25px;
+                      border-radius: 5px;">
+                        <span style="display: flex; justify-content: center; padding-top: 5px;">Reprovado</span>
+                      </div>      
+                      
+                      <div style="width: 108%; border-bottom: 1px solid #000; margin: 5px 0;"></div> <!-- Linha separadora -->
+                          
+                      <div style="background-color: rgb(233 206 206);
+                      height: 25px;
+                      border-radius: 5px;">
+                        <span style="display: flex; justify-content: center; padding-top: 5px;">Reprovado</span>
+                      </div>     
+                    </td>
+                    <td>
+                      <div style="display: flex; justify-content: center; align-items: center;">
+                        <input type="checkbox" id="scales" name="scales" checked style="transform: scale(1.5);">
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; justify-content: center; align-items: center; ">
+                        <button style=" font-size: 14px; border-radius: 25px; background-color: darkgreen;">
+                          <a href="{% url 'lancar_conselho_declasse' %}" style="color: aliceblue;  text-decoration: none;">
+                            Lançar Situação em disciplina
+                          </a>
+                        </button>
+                      </div>
+                    </td>
+                    
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; flex-direction: column;">
+                        <span>Sakura Hioshino</span>
+                        <span>Matrícula 20241TSPAV002</span>
+                      </div>
+                      
+                    </td>
+                    <td>
+                      <div style="display: flex; flex-direction: column;">
+                        <span>TIN.0014-Matemática</span>
+                        <span>TIN.0015-Sistemas para Internet</span>
+                      </div>
+                      
+                    </td>
+                    <td> 
+                      <div style="display: flex; flex-direction: column;">
+                        <div style="display: flex; flex-direction: column; ">
+                          <div>
+                            <span>37</span>
+                          </div>
+                          
+                          <div style="width: 110%; border-bottom: 1px solid #000; margin: 5px 0;"></div> <!-- Linha separadora -->
+                          
+                          <div>
+                            <span>45</span>
+                          </div>
+                      </div>
+                      </div>
+                      
+                    </td>
+                    <td> 
+                      <div style="background-color: rgb(233 206 206);
+                      height: 25px;
+                      border-radius: 5px;">
+                        <span style="display: flex; justify-content: center; padding-top: 5px;">Reprovado</span>
+                      </div>      
+                      
+                      <div style="width: 108%; border-bottom: 1px solid #000; margin: 5px 0;"></div> <!-- Linha separadora -->
+                          
+                      <div style="background-color: rgb(233 206 206);
+                      height: 25px;
+                      border-radius: 5px;">
+                        <span style="display: flex; justify-content: center; padding-top: 5px;">Reprovado</span>
+                      </div>         
+                    </td>
+                    <td>
+                      <div style="display: flex; justify-content: center; align-items: center;">
+                        <input type="checkbox" id="scales" name="scales" checked style="transform: scale(1.5);">
+                      </div>          
+                    </td>
+                    <td>
+                      <div style="display: flex; justify-content: center; align-items: center; ">
+                        <button style="font-size: 14px; border-radius: 25px; background-color: darkgreen;">
+                          
+                          <a href="{% url 'lancar_conselho_declasse' %}" style="color: aliceblue;  text-decoration: none;">
+                            Lançar Situação em disciplina
+                          </a>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        
+            <!-- Conteúdo de Fevereiro -->
+            <div id="fevereiro" class="tab-content">
+              <p>Conteúdo de Fevereiro</p>
+            </div>
+
+            <!-- Conteúdo de Março -->
+            <div id="marco" class="tab-content">
+              <p>Conteúdo de Março</p>
+            </div>
+                
+        
+        
+      </div>
+      <script>
+       document.addEventListener("DOMContentLoaded", function() {
+        const tabs = document.querySelectorAll('.tab-link');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            // Remove a classe ativa de todos os conteúdos e abas
+            contents.forEach(content => content.classList.remove('active'));
+            tabs.forEach(t => t.classList.remove('active'));
+
+            // Adiciona a classe ativa ao conteúdo e aba selecionados
+            const tabContent = document.getElementById(this.getAttribute('data-tab'));
+            tabContent.classList.add('active');
+            this.classList.add('active');
+          });
+        });
+
+        // Exibe a primeira aba por padrão
+        document.querySelector('.tab-link').click();
+      });
+
+
+
+      </script>
+    </main>
+  </div>
+{% endblock %}
