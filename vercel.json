@@ -3,18 +3,12 @@
   "builds": [
     {
       "src": "reservas/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.9",
-        "zeroConfig": true
-      }
-    }
-  ],
-  "routes": [
+      "use": "@vercel/python"
+    },
     {
-      "src": "/(.*)",
-      "dest": "reservas/wsgi.py"
+      "src": "manage.py",
+      "use": "@vercel/python",
+      "config": { "args": ["migrate"] }
     }
   ]
 }
