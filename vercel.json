@@ -1,15 +1,15 @@
 {
-    "version": 2,
-    "builds": [
+  "version": 2,
+  "builds": [
       {
-        "src": "reservas/wsgi.py",
-        "use": "@vercel/python"
-      },
-      {
-        "src": "manage.py",
-        "use": "@vercel/python",
-        "config": { "args": ["collectstatic", "--noinput"] }
+          "src": "reservas/wsgi.py",
+          "use": "@vercel/python"
       }
-    ]
-  }
-  
+  ],
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "reservas/wsgi.py"
+      }
+  ]
+}
