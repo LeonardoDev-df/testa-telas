@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h-2gbz+-+)#q7)oz$61i#os$9x(^cui4q*bjppwg5-)h%&#(s-'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-h-2gbz+-+)#q7)oz$61i#os$9x(^cui4q*bjppwg5-)h%&#(s-')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']  # Adicione seu domínio do Vercel
 
 
 # Application definition
@@ -82,6 +84,12 @@ DATABASES = {
     }
 }
 
+# Se você usar Postgres ou quiser mudar para produção:
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get('DATABASE_URL')
+#     )
+# }
 
 
 # Password validation
@@ -114,7 +122,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-USE_I18N = True  # Habilita a internacionalização
 USE_L10N = True
 
 
@@ -122,9 +129,15 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Pasta onde os arquivos estáticos serão coletados
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+# Configurações de arquivos de mídia
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
