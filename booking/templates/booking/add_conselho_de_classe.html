@@ -240,11 +240,11 @@ input[type="radio"]:checked::before {
 .btn {
   padding: 10px 20px;
   text-decoration: none;
-  color: #fff;
+  color: #1a1818;
   background-color: #444;
   border: none;
   border-radius: 25px;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   min-height: 30px;
 }
 
@@ -255,6 +255,20 @@ input[type="radio"]:checked::before {
 .btn.default {
   background-color: #ddd;
 }
+
+.btn-salvar {
+    background-color: #2b803f;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-salvar:hover {
+    background-color: #218838;
+  }
   </style>
   <link rel="stylesheet" href="{% static 'add_conselho_declasse.css' %}">
 
@@ -389,7 +403,7 @@ input[type="radio"]:checked::before {
 
             <!-- Botão de enviar -->
             <div class="submit-button">
-              <button id="button_filter" class="btn default" type="submit">Salvar</button>
+              <button id="button_filter" class="btn-salvar" type="submit">Salvar</button>
             </div>
           </form>
         </div>
